@@ -1,0 +1,27 @@
+{
+  "name": "back-end-projeto-app-tarefas",
+  "version": "1.0.0",
+  "description": "back-end de um app de tarefas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Augusto-Ildefonso/Back-End-Projeto-Tarefas.git"
+  },
+  "author": "Augusto Fernandes Ildefonso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Augusto-Ildefonso/Back-End-Projeto-Tarefas/issues"
+  },
+  "homepage": "https://github.com/Augusto-Ildefonso/Back-End-Projeto-Tarefas#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
+  "type": "module"
+}
