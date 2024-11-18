@@ -19,4 +19,4 @@ Por último, o arquivo `index.js` é o arquivo principal do servidor. Nele que �
 Atualmente, o front-end ainda não está se comunicando com o back-end. Porém, o back-end está completamente funcional, tanto enviando quanto recebendo as informações necessárias. Para testá-lo pode-se utilizar softwares como `Insomnia` ou `Postman`.
 
 Os testes foram feitos utilizando o `Insomnia` e foram criadas as seguintes requisições:
-![Print das requisições do Insomnia]('/images/Insomnia.png')
+![Print das requisições do Insomnia](['/images/Insomnia.png'](https://raw.githubusercontent.com/Augusto-Ildefonso/Back-End-Projeto-Tarefas/refs/heads/master/images/Insomnia.png))
