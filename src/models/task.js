@@ -1,11 +1,6 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-    cpf: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     email: {
         type: String,
         required: true,
@@ -18,15 +13,21 @@ const UserSchema = new mongoose.Schema({
     },
     date: {
         type: String,
-        required: true,
         trim: true,
     },
-    password: {
+    time: {
         type: String,
-        required: true,
         trim: true,
     },
+    description: {
+        type: String,
+        trim: true,
+    },
+    status: {
+        type: String,
+        trim: true,
+    }
 })
 
-const User = mongoose.model('User', UserSchema);
-export default User;
+const Task = mongoose.model('Task', UserSchema);
+export default Task;
