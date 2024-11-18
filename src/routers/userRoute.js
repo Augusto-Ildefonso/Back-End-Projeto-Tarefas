@@ -1,13 +1,14 @@
 import express from "express";
-import {accountLogin, accountCreate, accountUpdate, accountDelete} from "../controllers/userController.js";
+import UserController from "../controllers/userController.js";
+import auth from "../middleware/auth.js";
 
 const router = express.Router();
 export default router;
 
-router.post('/create', (req,res)=>{accountCreate(req,res);})
+router.post('/create', (req,res)=>{UserController.Create(req,res);})
 
-router.get('/login/:login%26:password', (req, res) => {accountLogin(req, res);});
+router.post('/login', (req, res) => {UserController.Login(req, res);});
 
-router.post('/update', (req, res) =>{accountUpdate(req,res);});
+router.post('/update', auth,  (req, res) =>{UserController.Update(req,res);});
 
-router.delete('/delete/:login', (req, res) => {accountDelete(req,res);});
+router.delete('/delete/:login', auth, (req, res) => {UserController.Delete(req,res);});
