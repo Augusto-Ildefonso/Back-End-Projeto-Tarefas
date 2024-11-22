@@ -14,4 +14,9 @@ server.use(cors());
 server.use('/users', userRouter);
 server.use('/tasks', taskRouter)
 
+server.get('/', (req, res) => {
+    console.log('Server running!');
+    res.status(200).send({})
+})
+
 server.listen(3000, () => console.log('Server is running on port 3000'));

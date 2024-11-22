@@ -11,11 +11,12 @@ export const createTask = async (req, res) => {
     })
 
     await task.save();
+    console.log('Tarefa Criada!');
     res.status(200).send({task: task});
 };
 
 export const updateTask = async (req, res) => {
-    const task = await Task.findOne({email: req.body.email, name: req.body.name});
+    const task = await Task.findById(req.body.id);
 
     if (!task) {
         res.status(404).json({message: 'Tarefa Não Encontrada'});
@@ -27,16 +28,17 @@ export const updateTask = async (req, res) => {
         task.status = req.body.status;
 
         await task.save();
-
+        console.log('Tarefa Atualizada!')
         res.status(200).json({task});
     }
 };
 
 export const deleteTask = async (req, res) => {
     try{
-        const login = req.params.login.split('=')[1];
+        const login = req.params.login;
         const name = req.body.name;
         await Task.deleteOne({email: login, name:name});
+        console.log('Tarefa deletada!');
         res.status(200).json({message: "Tarefa Deletada"});
     } catch (error) {
         res.status(500).json({error: error});

@@ -8,7 +8,6 @@ const Create = async (req, res) => {
         date: req.body.date,
         password: req.body.password,
     });
-
     const email = req.body.email;
     const existingUser = await User.findOne({email: email});
 
@@ -16,6 +15,7 @@ const Create = async (req, res) => {
         res.status(400).json({message: "Usuário já existe"});
     } else{
         await user.save();
+        console.log('Usuário cadastrado');
         res.status(201).send({login: user.email});
     }
 }
@@ -27,6 +27,7 @@ const Login = async (req, res) => {
 
 
         const token = user.generateAuthToken();
+        console.log("Login Efetuado!")
         return res.status(200).send({token, login: user.email});
     } catch(err){
         res.status(500).json({error: err});
@@ -41,6 +42,7 @@ const Update = async (req, res) => {
         user.password = req.body.newpassword;
         await user.save();
         const token = user.generateAuthToken();
+        console.log('Atualizando Usuário!')
         return res.status(200).send({token, login: user.email});
     } catch(err){
         return res.status(500).json({error: err});
@@ -49,10 +51,11 @@ const Update = async (req, res) => {
 
 const Delete = async (req, res) => {
     try {
-        const login = req.params.login.split('=')[1];
+        const login = req.params.login;
+        console.log(login);
         const isEmail = login.includes('@');
         await User.deleteOne(isEmail ? {email: login} : {cpf: login})
-
+        console.log('Usuario deletado');
         return res.status(204).json({message: "Usuário Deletado"})
     } catch(err){
         return res.status(500).json({error: err});
